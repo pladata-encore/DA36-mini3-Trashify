@@ -16,9 +16,8 @@ os.makedirs(SAVE_DIR, exist_ok=True)  # 해당폴더가 있는경우 오류발�
 st.title("대형 폐기물 이미지 분류")
 
 st.write("이미지를 업로드하면, 해당 이미지가 어떤 클래스인지 정확히 분류합니다.")
-st.image("molang2.jpg", use_container_width =True)
+st.image("molang2.jpg")
 
-st.link_button("CIFAR-10 데이터셋 바로가기", "https://www.cs.toronto.edu/~kriz/cifar.html")
 
 # 모델 로드 및 예측
 file_id = '1Xs4IQZbyZ9yZPHau4_ZBfTWGWkE8LXKC'
@@ -60,7 +59,7 @@ if uploaded_file is not None:
     print('resized_image', type(resized_image), resized_image.shape) # <class 'tensorflow.python.framework.ops.EagerTensor'>  (224, 224, 3)
     # EagerTensor 타입을 NumPy 배열로 다시 변환
     a_image = np.array(resized_image)
-    # MobileNetV2 전용 스케일링
+    # EfficientNetB0용 스케일링
     a_image = preprocess_input(a_image)
     batch_image = a_image.reshape(1, IMAGE_SIZE, IMAGE_SIZE, 3)
     pred_proba = model.predict(batch_image)
@@ -71,8 +70,8 @@ if uploaded_file is not None:
     st.success(f"예측 확률: {pred_proba[0][pred]:.4f}")
 
     # 서버에 저장
-    save_path = os.path.join(SAVE_DIR, uploaded_file.name)
-    with open(save_path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
+    # save_path = os.path.join(SAVE_DIR, uploaded_file.name)
+    # with open(save_path, "wb") as f:
+    #     f.write(uploaded_file.getbuffer())
 
     st.success(f"이미지가 저장되었습니다: {save_path}")
