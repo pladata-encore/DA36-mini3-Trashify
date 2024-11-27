@@ -1,6 +1,6 @@
 # DA36-mini3-dl3
 
-![대문 이미지](../../mini3/readme_img/Trashify.png)
+![대문 이미지](readme_img/Trashify.png)
 
 ## 목차
 1. 프로젝트 개요
