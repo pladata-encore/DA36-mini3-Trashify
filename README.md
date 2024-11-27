@@ -14,19 +14,19 @@
 
 ## 프로젝트 개요
 
-![프로젝트개요 이미지](../../mini3/readme_img/project_overview.png)
+![프로젝트개요 이미지](readme_img/project_overview.png)
 
 ## 개발배경
 
-![개발배경 이미지](../../mini3/readme_img/background1.png)
+![개발배경 이미지](readme_img/background1.png)
 
-![개발배경 이미지](../../mini3/readme_img/background2.png)
+![개발배경 이미지](readme_img/background2.png)
 
 ## 시장조사
 
-![시장조사 이미지](../../mini3/readme_img/market_research1.png)
+![시장조사 이미지](readme_img/market_research1.png)
 
-![시장조사 이미지](../../mini3/readme_img/market_research2.png)
+![시장조사 이미지](readme_img/market_research2.png)
 
 
 ## 데이터 취득
