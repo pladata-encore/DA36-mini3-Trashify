@@ -3,6 +3,7 @@ import os
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
+import random
 
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -62,6 +63,14 @@ if uploaded_file is not None:
         'sofa'
     ]
 
+    # 가격별 스티커 이미지 경로
+    price_stickers = {
+        'cabinet': ['sticker_3000.png', 'sticker_5000.png', 'sticker_10000.png'],
+        'chair': ['sticker_3000.png', 'sticker_5000.png'],
+        'dining_table': ['sticker_2000.png', 'sticker_3000.png'],
+        'sofa': ['sticker_5000.png', 'sticker_10000.png']
+    }
+
     IMAGE_SIZE = 224
 
     # 이미지 준비
@@ -101,7 +110,42 @@ if uploaded_file is not None:
     st.success(f"예측 클래스: {pred_label}")
     st.success(f"예측 확률: {pred_proba[0][pred] * 100:.2f}%")
 
-    # return
+    # 예측된 클래스에 해당하는 가격 스티커 선택
+    sticker_choices = price_stickers[pred_label]  # 예측된 클래스에 해당하는 스티커 리스트
+    selected_sticker_path = random.choice(sticker_choices)  # 랜덤으로 하나의 스티커 선택
+
+    # 스티커 이미지 로드
+    sticker = Image.open(selected_sticker_path)
+
+    # 스티커 크기 조정 (원하는 크기로 조정)
+    sticker = sticker.resize((100, 100))  # 예시로 크기 100x100으로 조정
+
+    # 업로드된 이미지 위에 스티커 오버레이
+    base_image = image.convert("RGBA")  # RGBA 모드로 변환 (투명 배경을 지원하기 위해)
+    sticker = sticker.convert("RGBA")  # 스티커도 RGBA 모드로 변환
+
+    # 스티커 위치 (업로드된 이미지에 맞춰서 위치 조정)
+    sticker_position = (50, 50)  # 예시로 (50, 50) 위치에 스티커를 배치
+
+    # # 이미지를 합성 (스티커가 업로드된 이미지 위에 덧씌워짐)
+    combined = base_image.copy()
+    combined.paste(sticker, sticker_position, sticker)  # 스티커 이미지가 투명 영역을 고려해서 합성
+
+    # 최종 이미지 표시
+    st.image(combined, caption="이미지와 스티커", use_column_width=True)
+
+    # 가격 표시
+    price = None
+    if pred_label == 'cabinet':
+        price = '3,000원' '5,000원' '10,000원'
+    elif pred_label == 'chair':
+        price = '3,000원' '5,000원'
+    elif pred_label == 'dining_table':
+        price = '2,000원' '3,000원'
+    elif pred_label == 'sofa':
+        price = '5,000원' '10,000원'
+
+    st.write(f"해당 폐기물의 배출 스티커 예상 가격은 {price}입니다.")
 
     # 모델 로드는 위에서 진행하고, 이미지로드부터 이미지출력을 하나의 함수로 만들어서 출력완료시 다시 리턴할 수 있도록 만들기
 
