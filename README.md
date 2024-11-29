@@ -35,22 +35,40 @@
 ------
 ## 데이터 취득
 
-생활 폐기물 이미지:
+Ai hub - 생활 폐기물 이미지:
 https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=140
+
+![dataset 이미지](readme_img/dataset.jpg)
 
 ------
 ## 데이터 전처리
 
-- 전체 데이터셋은 용량이 크므로 먼저 테스트를 위해 카테고리별 40개 파일 800장의 이미지로 머지 후 테스트 학습
-- 각 이미지를 224, 224 크기로 리사이즈
+- 전체 데이터셋은 용량이 크므로 전체 15종의 카테고리중에서 가구류 4종으로 선택
+![dataset 이미지](readme_img/preprocess.jpg)
+<br>
+</br>
+- 계산 시간과 메모리 사용량을 줄이기 위해 이미지를 224, 224 크기로 리사이즈
+<br>
+</br>
+- 학습중 GPU 메로리를 더 효율적으로 활용하기 위해 사전 처리
 
 ------
 ## 모델 학습
 
 - 강한결: MobileNetV2
+![mobilenet 이미지](readme_img/mobilenet.jpg) 
+<br>
+</br> 
 - 김정아: ResNet50V2
+![resnet 이미지](readme_img/resnet.jpg)
+<br>
+</br>
 - 김혜영: EfficientNet
+![efficientnet 이미지](readme_img/efficientnet.jpg)
+<br>
+</br>
 - 심정석: Xception
+![dataset 이미지](readme_img/xception.jpg)
 
 ------
 ## 기대효과
@@ -60,6 +78,7 @@ https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetS
 ------
 ## 시연 영상
 
+- 이미지 클릭
 [![시연 영상](readme_img/main.png)](https://drive.google.com/file/d/1NTkJiXp2pfk5Bkz38BgNaxW57N9TuBUU/view?usp=drive_link)
 
 ------
