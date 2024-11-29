@@ -45,11 +45,9 @@ https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetS
 
 - 전체 데이터셋은 용량이 크므로 전체 15종의 카테고리중에서 가구류 4종으로 선택
 ![dataset 이미지](readme_img/preprocess.jpg)
-<br>
-</br>
+
 - 계산 시간과 메모리 사용량을 줄이기 위해 이미지를 224, 224 크기로 리사이즈
-<br>
-</br>
+
 - 학습중 GPU 메로리를 더 효율적으로 활용하기 위해 사전 처리
 
 ------
@@ -57,18 +55,15 @@ https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetS
 
 - 강한결: MobileNetV2
 ![mobilenet 이미지](readme_img/mobilenet.jpg) 
-<br>
-</br> 
+
 - 김정아: ResNet50V2
 ![resnet 이미지](readme_img/resnet.jpg)
-<br>
-</br>
+
 - 김혜영: EfficientNet
 ![efficientnet 이미지](readme_img/efficientnet.jpg)
-<br>
-</br>
+
 - 심정석: Xception
-![dataset 이미지](readme_img/xception.jpg)
+![xception 이미지](readme_img/xception.jpg)
 
 ------
 ## 기대효과
