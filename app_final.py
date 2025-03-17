@@ -16,7 +16,7 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 # Streamlit UI 설정
 st.image("image_logo.png")
 st.title("대형 폐기물 이미지 분류")
-st.write("이미지를 업로드하면, 해당 이미지가 어떤 클래스인지 정확히 분류해드립니다.")
+st.write("이미지를 업로드하면, 해당 이미지가 어떤 클래스인지 분류해드립니다.♻️")
 st.image("trash_image.png")
 
 # 파일 업로드
@@ -29,17 +29,17 @@ uploaded_file = st.file_uploader("이미지 파일을 업로드하세요.", type
 filepath = 'Efficient final.keras'  # 모델 경로를 확인
 try:
     model = load_model(filepath)
-    st.write("모델 로드 성공")
+    st.write("모델 로드 성공👍")
 except Exception as e:
-    st.error(f"모델 로드 실패: {e}")
+    st.error(f"모델 로드 실패👎: {e}")
     st.stop()
 
 try:
     image = Image.open(uploaded_file)
     image_np = np.array(image)
-    st.write("이미지 로드 성공")
+    st.write("이미지 로드 성공👍")
 except Exception as e:
-    st.error(f"이미지 로드 실패: {e}")
+    st.error(f"이미지 로드 실패👎: {e}")
     st.stop()
 
 if uploaded_file is not None:
@@ -132,7 +132,7 @@ if uploaded_file is not None:
     combined.paste(sticker, sticker_position, sticker)  # 스티커 이미지가 투명 영역을 고려해서 합성
 
     # 최종 이미지 표시
-    st.image(combined, caption="이미지와 스티커", use_column_width=True)
+    st.image(combined, caption="이미지와 폐기물 배출 스티커", use_column_width=True)
 
     # 가격 표시
     price = None
@@ -163,3 +163,4 @@ if uploaded_file is not None:
     # plt.xticks(rotation=45)
     # plt.tight_layout()
     # st.pyplot(plt)
+

@@ -20,7 +20,7 @@ st.write("대형 폐기물 분류 배출 가격을 알려드립니다♻️")
 st.image("image/trash_image.png")
 
 # 파일 업로드
-uploaded_file = st.file_uploader("아래의 업로드 칸에 이미지 파일을 업로드해주세요.", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("아래의 칸에 이미지 파일을 업로드해주세요.", type=["jpg", "png", "jpeg"])
 
 
 filepath = 'Efficient final.keras'  # 모델 경로를 확인
@@ -117,7 +117,11 @@ if uploaded_file is not None:
     elif pred_label == 'sofa':
         price = '5,000원' '10,000원'
 
-    st.write(f"해당 폐기물의 배출 스티커 예상 가격은 {price}입니다.")
+    st.write(f"해당 폐기물의 배출 스티커 예상 가격은 **{price}**입니다.")
+
+    if st.button('**온라인 신청하기**'):
+        st.markdown('[서울시 대형 폐기물 배출 온라인 신청](https://www.seocho.go.kr/site/seocho/ex/bigWaste/BigWasteUserFStart.do)', unsafe_allow_html=True)
+        st.markdown('[평택시 대형 폐기물 배출 온라인 신청](https://www.pyeongtaek.go.kr/waste/privacy.do?mId=0300000000)', unsafe_allow_html=True)
 
 
 
